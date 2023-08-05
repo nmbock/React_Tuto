@@ -1,10 +1,23 @@
-import "./styles.css";
+import { useState } from "react";
 
-export default function App() {
+function App() {
+  // state (états données)
+  const [compteur, setCompteur] = useState(1); // compteur = 1 et setCompteur est son setter
+
+  // comportement
+  const handleClick = () => {
+    setCompteur(compteur +1); // react modifie l'affichage par lui-même + sans le setter la bonne valeur n'est oas affiché
+    console.log(compteur);
+  };
+
+
+  // affichage (render)
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+    <div>
+      <h1>{compteur}</h1>
+      <button onClick={handleClick}>Incrémente</button>
     </div>
   );
 }
+
+export default App;
